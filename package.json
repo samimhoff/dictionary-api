@@ -1,0 +1,22 @@
+{
+  "name": "dictionary-api",
+  "version": "1.0.0",
+  "description": "A dictionary api including tests to verify the routes that create and delete dictionaries, and create and modify dictionary entries.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samimhoff/dictionary-api.git"
+  },
+  "author": "Sam Imhoff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samimhoff/dictionary-api/issues"
+  },
+  "homepage": "https://github.com/samimhoff/dictionary-api#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
