@@ -10,13 +10,20 @@ function createDictionary() {
       Authorization: config.API_KEY
     }
   };
-  axios(options).then((response) => {
-    console.log('createDictionary');
-    console.log('status: ', response.status);
-    console.log('data: ', response.data);
-    console.log('headers', response.headers);
+  return axios(options).then((response) => {
+    // console.log('createDictionary');
+    // console.log('status: ', response.status);
+    // console.log('data: ', response.data);
+    // console.log('headers', response.headers);
+    const responseObj = {
+      status: response.status,
+      data: response.data,
+      headers: response.headers
+    }
+    return responseObj;
   }).catch((err) => {
     console.log(err);
+    return false;
   })
 };
 
@@ -30,10 +37,10 @@ function deleteDictionary(id) {
     }
   };
   axios(options).then((response) => {
-    console.log('deleteDictionary');
-    console.log('status: ', response.status);
-    console.log('data: ', response.data);
-    console.log('headers', response.headers);
+    // console.log('deleteDictionary');
+    // console.log('status: ', response.status);
+    // console.log('data: ', response.data);
+    // console.log('headers', response.headers);
   }).catch((err) => {
     console.log(err);
   });
@@ -73,9 +80,9 @@ function createOrModifyEntry (id, key, word) {
     },
     body: `{  \"value\": \"${word}\"}`
   }, function (error, response, body) {
-    console.log('Status:', response.statusCode);
-    console.log('Headers:', JSON.stringify(response.headers));
-    console.log('Response:', body);
+    // console.log('Status:', response.statusCode);
+    // console.log('Headers:', JSON.stringify(response.headers));
+    // console.log('Response:', body);
   });
 }
 
@@ -89,10 +96,10 @@ function getAllKeys(id) {
     }
   };
   axios(options).then((response) => {
-    console.log('getAllKeys');
-    console.log('status: ', response.status);
-    console.log('data: ', response.data);
-    console.log('headers', response.headers);
+    // console.log('getAllKeys');
+    // console.log('status: ', response.status);
+    // console.log('data: ', response.data);
+    // console.log('headers', response.headers);
   }).catch((err) => {
     console.log(err);
   });
@@ -108,20 +115,27 @@ function getValue(id, key) {
     }
   };
   axios(options).then((response) => {
-    console.log('getAllKeys');
-    console.log('status: ', response.status);
-    console.log('data: ', response.data);
-    console.log('headers', response.headers);
+    // console.log('getAllKeys');
+    // console.log('status: ', response.status);
+    // console.log('data: ', response.data);
+    // console.log('headers', response.headers);
   }).catch((err) => {
     console.log(err);
   });
 }
 
 
-// console.log(createDictionary());
+console.log(createDictionary());
 // console.log(createOrModifyEntry('8240c74a-2d96-4250-815d-35b9ad53ade4', 20, 'cat'));
 // console.log(getAllKeys('8240c74a-2d96-4250-815d-35b9ad53ade4'));
 // console.log(getValue('8240c74a-2d96-4250-815d-35b9ad53ade4', '20'));
 
+// module.exports = {
 
-// module.exports.createDictionary = createDictionary;
+// }
+
+module.exports.createDictionary = createDictionary;
+module.exports.deleteDictionary = deleteDictionary;
+module.exports.createOrModifyEntry = createOrModifyEntry;
+module.exports.getAllKeys = getAllKeys;
+module.exports.getValue = getValue;
